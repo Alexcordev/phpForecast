@@ -1,3 +1,10 @@
+<!--
+    Auteur: Alexandre Cormier;
+    Matricule: 748947;
+    Code Permanent: CORA 2902 7602;
+    Login: cormiea
+-->
+
 <?php
 $PageTitle = "Travail Pratique #1";
 include_once '../TP1/templates/header.php';
@@ -17,28 +24,31 @@ include_once '../TP1/templates/header.php';
     <h5 class="card-title">Choix de la ville</h5>
     <form name="formVilles" action="./villes.php" method="post">
       <div class="form-group">
-        <select multiple class="form-control" id="villes" name="ville[]" size="6">
+
         <?php
 
 $file = 'http://www.iro.umontreal.ca/~dift1147/pages/TPS/tp1/villes.txt';
+$fichier = @fopen($file, 'r') or die("Problème à la lecture du fichier");
+?>
 
-$handle = @fopen($file, 'r');
-if ($handle) {
-    while (!feof($handle)) {
-        $line = fgets($handle);
+<select multiple class="form-control" id="villes" name="ville[]" size="6">
+<?php
+if ($fichier) {
+    while (!feof($fichier)) {
+        $line = fgets($fichier);
         $extract = substr($line, 6);
         $output = preg_replace_callback("/(&#[0-9]+;)/", function ($m) {return mb_convert_encoding($m[1], "UTF-8", "HTML-ENTITIES");}, $extract);
         $item = strtok($output, ";");
         $ficV = array_pad(explode(":", $output), 2, null);
         //$ficV = explode(":", $output);
-        $fichier = substr($ficV[1], 0);
-        trim($fichier);
+        $fich = substr($ficV[1], 0);
+        trim($fich);
         if (strlen($item) > 1) {
-            echo '<option value="' . $fichier . '">' . $item . '</option>';
+            echo '<option value="' . $fich . '">' . $item . '</option>';
         }
     }
 
-    fclose($handle);
+    fclose($fichier);
 } else {
     echo "Problème à d'accès aux données sur le serveur";
 }

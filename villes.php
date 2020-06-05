@@ -1,3 +1,10 @@
+<!--
+    Auteur: Alexandre Cormier;
+    Matricule: 748947;
+    Code Permanent: CORA 2902 7602
+    Login: cormiea
+-->
+
 <?php
 $PageTitle = "Travail Pratique #1";
 include_once '../TP1/templates/header.php';
@@ -31,10 +38,10 @@ function listeVille($x)
 {
     define("FILE", "http://www.iro.umontreal.ca/~dift1147/pages/TPS/tp1/");
     $fic = trim(FILE . $x);
-    $fichier = fopen($fic, "r");
+
+    $fichier = fopen($fic, "r") or die("Ce fichier n'existe pas!");
 
     $contents = file($fic);
-    //$ligne=fgets($fichier);
     $img = null;
     $information = null;
     $temp = null;
@@ -42,7 +49,7 @@ function listeVille($x)
     $hum = null;
     $desc = null;
 
-    foreach ($contents as $infos) /*while (!feof($fic))*/ {
+    foreach ($contents as $infos) {
         $split = explode(':', $infos);
         $info = $split;
         trim($info[0]);
@@ -90,7 +97,6 @@ $display = '<table class="table table-bordered">';
         }
         $display .= "<tr><td colspan='3'>Description: " . "<span class='highlight'>" . $desc . "</span>" . "</td></tr></tbody></table>";
 
-        /*$ligne=fgets($fichier);*/
     }
 
     fclose($fichier);

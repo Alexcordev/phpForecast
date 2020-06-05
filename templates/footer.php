@@ -1,7 +1,12 @@
-
+<!--
+    Auteur: Alexandre Cormier;
+    Matricule: 748947;
+    Code Permanent: CORA 2902 7602
+    Login: cormiea
+-->
         <footer class="main-footer">
             <hr />
-            <p class="author">Travail effectu&eacute; par: Alexandre Cormier CORA0101010101</p>
+            <p class="author">Travail effectu&eacute; par: Alexandre Cormier CORA29027602 | Maticule 748947 | Login: cormiea</p>
         </footer>
         <script src="../../TP1/js/main.js"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
