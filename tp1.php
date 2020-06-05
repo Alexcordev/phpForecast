@@ -7,7 +7,7 @@
 
 <?php
 $PageTitle = "Travail Pratique #1";
-include_once '../TP1/templates/header.php';
+include_once './templates/header.php';
 
 ?>
 
@@ -65,5 +65,5 @@ if ($fichier) {
         </div>
 
 <?php
-include_once '../TP1/templates/footer.php';
+include_once './templates/footer.php';
 ?>

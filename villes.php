@@ -7,7 +7,7 @@
 
 <?php
 $PageTitle = "Travail Pratique #1";
-include_once '../TP1/templates/header.php';
+include_once './templates/header.php';
 ?>
 <div>
     <hr class="line"/>
@@ -80,7 +80,7 @@ function listeVille($x)
 <?php
 $display = '<table class="table table-bordered">';
         $display .= "<thead><tr class='headerStyle'>";
-        $image = "<img width='200px' height='200px' src='../TP1/images/$img.gif'>";
+        $image = "<img width='200px' height='200px' src='./images/$img.gif'>";
         $display .= "<th colspan='3'>" . $image . "<br />" . "<span class='highlight'>" . $information . "</span>" . "</th></tr></thead>";
         $display .= "<tbody><tr><td>Température: " . "<span class='highlight'>" . $temp . "</span>" . "</td>";
         if ($vent == null) {
@@ -110,5 +110,5 @@ $display = '<table class="table table-bordered">';
 </div>
  </div>
 <?php
-include_once '../TP1/templates/footer.php';
+include_once './templates/footer.php';
 ?>
